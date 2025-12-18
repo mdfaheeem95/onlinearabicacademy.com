@@ -16,7 +16,7 @@
 			--border: #334155;   /* slate-700 */
 		}
 		* { box-sizing: border-box; }
-		html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Noto Sans Tamil", "Latha", "Tamil MN", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+		html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Noto Sans Tamil", "Latha", "Tamil MN", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size: 1.1rem; }
 		a { color: var(--accent-2); }
 
 		.topbar { padding: 24px; background: var(--panel); border-bottom: 1px solid var(--border); }
@@ -47,75 +47,124 @@
 	</style>
 </head>
 <body>
-  <header class="topbar">
-    <h1>ஆன்லைன் அரபு கல்வி மையம் (Online Arabic Academy)</h1>
-    <p>அரபு மொழியை நிலைப்படுத்தப்பட்ட பாடத்திட்டத்துடன்—தமிழ்சார் விளக்கங்களுடன்—ஆன்லைனில் கற்போம்.</p>
+  <header class="topbar" style="position:relative;">
+	<button id="lang-toggle" style="position:absolute; top:16px; right:24px; padding:14px 28px; border-radius:8px; border:none; background:#60a5fa; color:#fff; font-weight:bold; cursor:pointer; font-size:1.2em;">English</button>
+    <h1>
+      <span class="ta">ஆன்லைன் அரபு கல்வி மையம்</span>
+      <span class="en" style="display:none;">Online Arabic Academy</span>
+    </h1>
+    <p>
+      <span class="ta">அரபு மொழியை நிலைப்படுத்தப்பட்ட பாடத்திட்டத்துடன்—தமிழ்சார் விளக்கங்களுடன்—ஆன்லைனில் கற்போம்.</span>
+      <span class="en" style="display:none;">Learn Arabic online with a structured curriculum and Tamil explanations.</span>
+    </p>
   </header>
 
   <main class="levels">
     <!-- Foundation Level -->
-    <section class="level" id="foundation">
-      <div class="level-header">
-        <h2>Foundation-தொடக்க நிலை</h2>
-        <div class="meta">இந்த அடிப்படை நிலையில், மாணவர்கள் அரபு இலக்கணம் மற்றும் வினைச்சொற்களின் அடிப்படைகளை கற்றுக் கொள்வார்கள். கூடுதலாக, பேச்சில் பயன்படுத்தப்படும் 100-க்கும் மேற்பட்ட அரபு சொற்களஞ்சியத்தை கற்றுக் கொள்வார்கள். இந்த நிலையின் முடிவில், மாணவர்கள் எளிய வாக்கியங்களை அமைக்க முடியும் இன்ஷா அல்லாஹ்.</div>
-      </div>
+		<section class="level" id="foundation">
+			<div class="level-header" style="cursor:pointer; user-select:none; display:flex; align-items:center;">
+				<span id="foundation-toggle" style="font-size:1.2em; margin-right:10px;">&#9654;</span>
+				<h2 style="margin:0;">
+					<span class="ta">Foundation-தொடக்க நிலை</span><span class="en" style="display:none;">Foundation Level</span>
+				</h2>
+			</div>
+			<div class="meta" style="padding-left:32px;">
+				<span class="ta">இந்த அடிப்படை நிலையில், மாணவர்கள் அரபு இலக்கணம் மற்றும் வினைச்சொற்களின் அடிப்படைகளை கற்றுக் கொள்வார்கள். கூடுதலாக, பேச்சில் பயன்படுத்தப்படும் 100-க்கும் மேற்பட்ட அரபு சொற்களஞ்சியத்தை கற்றுக் கொள்வார்கள். இந்த நிலையின் முடிவில், மாணவர்கள் எளிய வாக்கியங்களை அமைக்க முடியும் இன்ஷா அல்லாஹ்.</span>
+				<span class="en" style="display:none;">In this foundation level, students will learn the basics of Arabic grammar and verbs, and acquire a vocabulary of over 100 commonly used Arabic words. By the end of this level, students will be able to form simple sentences, insha Allah.</span>
+			</div>
+			<div class="sublevels" id="foundation-sublevels" style="display:none;">
+				<!-- Sublevel 1 -->
+				<article class="sublevel" id="foundation-level-1">
+					<div class="sublevel-header">
+						<h3><span class="ta">முதல் நிலை - Level 1</span><span class="en" style="display:none;">Level 1</span></h3>
+						<div class="desc">
+							<span class="ta">இந்த முதல் நிலையில், மாணவர்கள் மதீனா அரபு புத்தகம் 1-ஐப் படிப்பார்கள். இது தினசரி உரையாடல்களில் பயன்படுத்தப்படும் எளிய அரபு வாக்கியங்களுக்கு கவனம் செலுத்துகிறது. கூடுதலாக, மாணவர்கள் அரபு வினைச்சொற்களின் உருபுமாற்றத்தின் அடிப்படைகளை கற்கத் தொடங்குவார்கள்.</span>
+							<span class="en" style="display:none;">In this first level, students will study Madina Arabic Book 1, focusing on simple Arabic sentences used in daily conversations and beginning verb conjugation basics.</span>
+						</div>
+					</div>
+					<div class="playlists">
+						<div class="playlist-embed">
+							<iframe width="100%" height="360" src="https://www.youtube-nocookie.com/embed/videoseries?si=tjS3I-7NTEMLx0VN&amp;list=PL0igoq7HFDfC2JzFko58G1cXETcYKq9Mu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+						<div class="playlist-embed">
+							<iframe width="100%" height="360" src="https://www.youtube.com/embed/videoseries?list=PL0igoq7HFDfAf8fguDUpNjJh6yh5u0hEy" title="Playlist 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="playlist-note">குறிப்பு: இங்கே உள்ள பட்டியல்கள் யூடியூப் இயக்கியில் நேரடியாக ஸ்ட்ரீம் செய்யப்படும் (வீடியோக்களை பதிவிறக்க வேண்டாம்).</div>
+				</article>
 
-      <div class="sublevels">
-        <!-- Sublevel 1 -->
-        <article class="sublevel" id="foundation-level-1">
-          <div class="sublevel-header">
-            <h3>முதல் நிலை - Level 1</h3>
-            <div class="desc">இந்த முதல் நிலையில், மாணவர்கள் மதீனா அரபு புத்தகம் 1-ஐப் படிப்பார்கள். இது தினசரி உரையாடல்களில் பயன்படுத்தப்படும் எளிய அரபு வாக்கியங்களுக்கு கவனம் செலுத்துகிறது. கூடுதலாக, மாணவர்கள் அரபு வினைச்சொற்களின் உருபுமாற்றத்தின் அடிப்படைகளை கற்கத் தொடங்குவார்கள்.</div>
-          </div>
-          <div class="playlists">
-            <div class="playlist-embed">
-              <iframe width="100%" height="360" src="https://www.youtube-nocookie.com/embed/videoseries?si=tjS3I-7NTEMLx0VN&amp;list=PL0igoq7HFDfC2JzFko58G1cXETcYKq9Mu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="playlist-embed">
-              <iframe width="100%" height="360" src="https://www.youtube.com/embed/videoseries?list=PL0igoq7HFDfAf8fguDUpNjJh6yh5u0hEy" title="Playlist 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="playlist-note">குறிப்பு: இங்கே உள்ள பட்டியல்கள் யூடியூப் இயக்கியில் நேரடியாக ஸ்ட்ரீம் செய்யப்படும் (வீடியோக்களை பதிவிறக்க வேண்டாம்).</div>
-        </article>
+				<!-- Sublevel 2 -->
+				<article class="sublevel" id="foundation-level-2">
+					<div class="sublevel-header">
+						<h3><span class="ta">இரண்டாம் நிலை - Level 2</span><span class="en" style="display:none;">Level 2</span></h3>
+						<div class="desc">
+							<span class="ta">இந்நிலையில், மாணவர்கள் சொற்களஞ்சியம் மற்றும் வாக்கிய அமைப்பு திறனை விரிவாக்குவர்; அடிப்படை வாசிப்பு/பேச்சு திறன்கள் நிலைப்படுத்தப்படுகின்றன. (இந்த விளக்கத்தை நீங்கள் விருப்பத்திற்கேற்ப மாற்றலாம்.)</span>
+							<span class="en" style="display:none;">In this level, students expand their vocabulary and sentence structure skills; basic reading and speaking abilities are reinforced. (You can customize this description.)</span>
+						</div>
+					</div>
+					<div class="playlists">
+						<div class="playlist-note">இங்கே உங்கள் YouTube பட்டியல் இணைப்புகளை (playlist links) சேர்க்கவும்.</div>
+					</div>
+				</article>
 
-        <!-- Sublevel 2 -->
-        <article class="sublevel" id="foundation-level-2">
-          <div class="sublevel-header">
-            <h3>இரண்டாம் நிலை - Level 2</h3>
-            <div class="desc">இந்நிலையில், மாணவர்கள் சொற்களஞ்சியம் மற்றும் வாக்கிய அமைப்பு திறனை விரிவாக்குவர்; அடிப்படை வாசிப்பு/பேச்சு திறன்கள் நிலைப்படுத்தப்படுகின்றன. (இந்த விளக்கத்தை நீங்கள் விருப்பத்திற்கேற்ப மாற்றலாம்.)</div>
-          </div>
-          <div class="playlists">
-            <div class="playlist-note">இங்கே உங்கள் YouTube பட்டியல் இணைப்புகளை (playlist links) சேர்க்கவும்.</div>
-          </div>
-        </article>
+				<!-- Sublevel 3 -->
+				<article class="sublevel" id="foundation-level-3">
+					<div class="sublevel-header">
+						<h3><span class="ta">மூன்றாம் நிலை - Level 3</span><span class="en" style="display:none;">Level 3</span></h3>
+						<div class="desc">
+							<span class="ta">இந்நிலையில், மாணவர்கள் உருபுமாற்றம் (conjugation) மற்றும் காலங்கள் (tenses) பற்றிய பயிற்சிகளை ஆழப்படுத்துவர். (இந்த விளக்கத்தை நீங்கள் விருப்பத்திற்கேற்ப மாற்றலாம்.)</span>
+							<span class="en" style="display:none;">In this level, students deepen their practice of verb conjugation and tenses. (You can customize this description.)</span>
+						</div>
+					</div>
+					<div class="playlists">
+						<div class="playlist-note">இங்கே உங்கள் YouTube பட்டியல் இணைப்புகளை (playlist links) சேர்க்கவும்.</div>
+					</div>
+				</article>
 
-        <!-- Sublevel 3 -->
-        <article class="sublevel" id="foundation-level-3">
-          <div class="sublevel-header">
-            <h3>மூன்றாம் நிலை - Level 3</h3>
-            <div class="desc">இந்நிலையில், மாணவர்கள் உருபுமாற்றம் (conjugation) மற்றும் காலங்கள் (tenses) பற்றிய பயிற்சிகளை ஆழப்படுத்துவர். (இந்த விளக்கத்தை நீங்கள் விருப்பத்திற்கேற்ப மாற்றலாம்.)</div>
-          </div>
-          <div class="playlists">
-            <div class="playlist-note">இங்கே உங்கள் YouTube பட்டியல் இணைப்புகளை (playlist links) சேர்க்கவும்.</div>
-          </div>
-        </article>
-
-        <!-- Sublevel 4 -->
-        <article class="sublevel" id="foundation-level-4">
-          <div class="sublevel-header">
-            <h3>நான்காம் நிலை - Level 4</h3>
-            <div class="desc">இந்நிலையில், மாணவர்கள் சிறிய வாசிப்புகள்/வழக்குப் பேச்சு (dialogue) பயிற்சியுடன் ஒருங்கிணைந்த மதிப்பீட்டின் வழியே அடிப்படை திறன் ஸ்தாயியை நிறைவு செய்வர். (இந்த விளக்கத்தை நீங்கள் விருப்பத்திற்கேற்ப மாற்றலாம்.)</div>
-          </div>
-          <div class="playlists">
-            <div class="playlist-note">இங்கே உங்கள் YouTube பட்டியல் இணைப்புகளை (playlist links) சேர்க்கவும்.</div>
-          </div>
-        </article>
-      </div>
-    </section>
+				<!-- Sublevel 4 -->
+				<article class="sublevel" id="foundation-level-4">
+					<div class="sublevel-header">
+						<h3><span class="ta">நான்காம் நிலை - Level 4</span><span class="en" style="display:none;">Level 4</span></h3>
+						<div class="desc">
+							<span class="ta">இந்நிலையில், மாணவர்கள் சிறிய வாசிப்புகள்/வழக்குப் பேச்சு (dialogue) பயிற்சியுடன் ஒருங்கிணைந்த மதிப்பீட்டின் வழியே அடிப்படை திறன் ஸ்தாயியை நிறைவு செய்வர். (இந்த விளக்கத்தை நீங்கள் விருப்பத்திற்கேற்ப மாற்றலாம்.)</span>
+							<span class="en" style="display:none;">In this level, students complete their foundational skills with short readings/dialogues and integrated assessment. (You can customize this description.)</span>
+						</div>
+					</div>
+					<div class="playlists">
+						<div class="playlist-note">இங்கே உங்கள் YouTube பட்டியல் இணைப்புகளை (playlist links) சேர்க்கவும்.</div>
+					</div>
+				</article>
+			</div>
+		</section>
   </main>
 
   <footer class="footer">
-    <small>Powered by YouTube embeds. யூடியூப் நிபந்தனைகளுக்கு இணங்க அதிகாரப்பூர்வ இயக்கியைப் பயன்படுத்தி ஸ்ட்ரீம் செய்யவும்.</small>
+    <small>
+      <span class="ta">Powered by YouTube embeds. யூடியூப் நிபந்தனைகளுக்கு இணங்க அதிகாரப்பூர்வ இயக்கியைப் பயன்படுத்தி ஸ்ட்ரீம் செய்யவும்.</span>
+      <span class="en" style="display:none;">Powered by YouTube embeds. Please stream videos using the official YouTube player as per YouTube terms.</span>
+    </small>
   </footer>
+<script>
+// Language toggle logic
+document.getElementById('lang-toggle').onclick = function() {
+  var isTamil = document.querySelector('.ta').style.display !== 'none';
+  document.querySelectorAll('.ta').forEach(function(el) { el.style.display = isTamil ? 'none' : ''; });
+  document.querySelectorAll('.en').forEach(function(el) { el.style.display = isTamil ? '' : 'none'; });
+  this.textContent = isTamil ? 'தமிழ்' : 'English';
+};
+
+// Dropdown for Foundation section
+document.getElementById('foundation-toggle').onclick = function() {
+  var sublevels = document.getElementById('foundation-sublevels');
+  var icon = this;
+  if (sublevels.style.display === 'none' || sublevels.style.display === '') {
+    sublevels.style.display = 'block';
+    icon.innerHTML = '&#9660;'; // Down arrow
+  } else {
+    sublevels.style.display = 'none';
+    icon.innerHTML = '&#9654;'; // Right arrow
+  }
+};
+</script>
 </body>
 </html>
