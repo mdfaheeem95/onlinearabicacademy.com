@@ -42,129 +42,201 @@
 		.footer { padding: 24px; text-align: center; color: var(--muted); }
 
 		@media (max-width: 420px) {
-			.playlists { grid-template-columns: 1fr; }
-		}
-	</style>
-</head>
-<body>
-  <header class="topbar" style="position:relative;">
-	<button id="lang-toggle" style="position:absolute; top:16px; right:24px; padding:14px 28px; border-radius:8px; border:none; background:#60a5fa; color:#fff; font-weight:bold; cursor:pointer; font-size:1.2em;">English</button>
-    <h1>
-      <span class="ta">ஆன்லைன் அரபு கல்வி மையம்</span>
-      <span class="en" style="display:none;">Online Arabic Academy</span>
-    </h1>
-    <p>
-      <span class="ta">அரபு மொழியை நிலைப்படுத்தப்பட்ட பாடத்திட்டத்துடன்—தமிழ்சார் விளக்கங்களுடன்—ஆன்லைனில் கற்போம்.</span>
-      <span class="en" style="display:none;">Learn Arabic online with a structured curriculum and Tamil explanations.</span>
-    </p>
-  </header>
+			<!DOCTYPE html>
+			<html lang="ta">
+			<head>
+				<meta charset="UTF-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<title>ஆன்லைன் அரபு கல்வி மையம் — Foundation-தொடக்க நிலை</title>
+				<style>
+					:root {
+						--bg: #0f172a;
+						--panel: #111827;
+						--text: #e5e7eb;
+						--muted: #94a3b8;
+						--accent-2: #60a5fa;
+						--danger: #f87171;
+						--card: #1f2937;
+						--border: #334155;
+					}
+					* { box-sizing: border-box; }
+					html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Noto Sans Tamil", "Latha", "Tamil MN", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size: 1.1rem; }
+					a { color: var(--accent-2); }
+					.topbar { padding: 24px; background: var(--panel); border-bottom: 1px solid var(--border); }
+					.topbar h1 { margin: 0 0 8px; text-align: center; }
+					.topbar p { margin: 0 0 12px; color: var(--muted); text-align: center; }
+					.levels { padding: 24px; display: grid; gap: 24px; }
+					.level { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--panel); }
+					.level-header { padding: 16px; border-bottom: 1px solid var(--border); }
+					.level-header h2 { margin: 0; font-size: 1.2rem; }
+					.level-header .meta { margin-top: 8px; color: var(--muted); }
+					.sublevels { padding: 16px; display: grid; gap: 16px; }
+					.sublevel { border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+					.sublevel-header { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+					.sublevel-header h3 { margin: 0; font-size: 1.05rem; }
+					.sublevel-header .desc { margin-top: 6px; color: var(--muted); }
+					.playlists { padding: 12px 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+					.playlist-embed { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #000; }
+					.playlist-note { color: var(--muted); font-size: 0.9rem; padding: 8px 16px; }
+					.footer { padding: 24px; text-align: center; color: var(--muted); }
+					@media (max-width: 420px) {
+						.playlists { grid-template-columns: 1fr; }
+					}
+				</style>
+			</head>
+			<body>
+				<header class="topbar" style="position:relative;">
+					<button id="lang-toggle" style="position:absolute; top:16px; right:24px; padding:14px 28px; border-radius:8px; border:none; background:#60a5fa; color:#fff; font-weight:bold; cursor:pointer; font-size:1.2em;">English</button>
+					<h1>
+						<span class="ta">ஆன்லைன் அரபு கல்வி மையம்</span>
+						<span class="en" style="display:none;">Online Arabic Academy</span>
+					</h1>
+					<p>
+						<span class="ta">அரபு மொழியை நிலைப்படுத்தப்பட்ட பாடத்திட்டத்துடன்—தமிழ்சார் விளக்கங்களுடன்—ஆன்லைனில் கற்போம்.</span>
+						<span class="en" style="display:none;">Learn Arabic online with a structured curriculum and Tamil explanations.</span>
+					</p>
+					<nav style="margin-top:24px; text-align:center;">
+						<button class="tab-btn" id="tab-home" style="padding:10px 28px; font-size:1.1em; border:none; border-radius:8px 8px 0 0; background:#60a5fa; color:#fff; font-weight:bold; cursor:pointer;">Home</button>
+						<button class="tab-btn" id="tab-tests" style="padding:10px 28px; font-size:1.1em; border:none; border-radius:8px 8px 0 0; background:#334155; color:#e5e7eb; font-weight:bold; cursor:pointer;">Tests</button>
+					</nav>
+				</header>
 
-  <main class="levels">
-    <!-- Foundation Level -->
-		<section class="level" id="foundation">
-			<div class="level-header" style="cursor:pointer; user-select:none; display:flex; align-items:center;">
-				<span id="foundation-toggle" style="font-size:1.2em; margin-right:10px;">&#9654;</span>
-				<h2 style="margin:0;">
-					<span class="ta">Foundation-தொடக்க நிலை</span><span class="en" style="display:none;">Foundation Level</span>
-				</h2>
-			</div>
-			<div class="meta" style="padding-left:32px;">
-				<span class="ta">இந்த அடிப்படை நிலையில், மாணவர்கள் அரபு இலக்கணம் மற்றும் வினைச்சொற்களின் அடிப்படைகளை கற்றுக் கொள்வார்கள். கூடுதலாக, பேச்சில் பயன்படுத்தப்படும் 100-க்கும் மேற்பட்ட அரபு சொற்களஞ்சியத்தை கற்றுக் கொள்வார்கள். இந்த நிலையின் முடிவில், மாணவர்கள் எளிய வாக்கியங்களை அமைக்க முடியும் இன்ஷா அல்லாஹ்.</span>
-				<span class="en" style="display:none;">In this foundation level, students will learn the basics of Arabic grammar and verbs, and acquire over a 100 vocabularies commonly used Arabic words. By the end of this level, students will be able to form simple sentences, insha Allah.</span>
-			</div>
-			<div class="sublevels" id="foundation-sublevels" style="display:none;">
-				<!-- Sublevel 1 -->
-				<article class="sublevel" id="foundation-level-1">
-					<div class="sublevel-header">
-						<h3><span class="ta">முதல் நிலை - Level 1</span><span class="en" style="display:none;">Level 1</span></h3>
-						<div class="desc">
-							<span class="ta">இந்த முதல் நிலையில், மாணவர்கள் மதீனா அரபு புத்தகம் 1-ஐப் படிப்பார்கள். இது தினசரி உரையாடல்களில் பயன்படுத்தப்படும் எளிய அரபு வாக்கியங்களுக்கு கவனம் செலுத்துகிறது. கூடுதலாக, மாணவர்கள் அரபு வினைச்சொற்களின் உருபுமாற்றத்தின் அடிப்படைகளை கற்கத் தொடங்குவார்கள்.</span>
-							<span class="en" style="display:none;">In this first level, students will study Madina Arabic Book 1, focusing on simple Arabic sentences used in daily conversations and beginning verb conjugation basics.</span>
-						</div>
+				<div id="tab-content-home">
+					<main class="levels">
+						<!-- Foundation Level -->
+						<section class="level" id="foundation">
+							<div class="level-header" style="cursor:pointer; user-select:none; display:flex; align-items:center;">
+								<span id="foundation-toggle" style="font-size:1.2em; margin-right:10px;">&#9654;</span>
+								<h2 style="margin:0;">
+									<span class="ta">Foundation-தொடக்க நிலை</span><span class="en" style="display:none;">Foundation Level</span>
+								</h2>
+							</div>
+							<div class="meta" style="padding-left:32px;">
+								<span class="ta">இந்த அடிப்படை நிலையில், மாணவர்கள் அரபு இலக்கணம் மற்றும் வினைச்சொற்களின் அடிப்படைகளை கற்றுக் கொள்வார்கள். கூடுதலாக, பேச்சில் பயன்படுத்தப்படும் 100-க்கும் மேற்பட்ட அரபு சொற்களஞ்சியத்தை கற்றுக் கொள்வார்கள். இந்த நிலையின் முடிவில், மாணவர்கள் எளிய வாக்கியங்களை அமைக்க முடியும் இன்ஷா அல்லாஹ்.</span>
+								<span class="en" style="display:none;">In this foundation level, students will learn the basics of Arabic grammar and verbs, and acquire over a 100 vocabularies commonly used Arabic words. By the end of this level, students will be able to form simple sentences, insha Allah.</span>
+							</div>
+							<div class="sublevels" id="foundation-sublevels" style="display:none;">
+								<!-- Sublevel 1 -->
+								<article class="sublevel" id="foundation-level-1">
+									<div class="sublevel-header">
+										<h3><span class="ta">முதல் நிலை - Level 1</span><span class="en" style="display:none;">Level 1</span></h3>
+										<div class="desc">
+											<span class="ta">இந்த முதல் நிலையில், மாணவர்கள் மதீனா அரபு புத்தகம் 1-ஐப் படிப்பார்கள். இது தினசரி உரையாடல்களில் பயன்படுத்தப்படும் எளிய அரபு வாக்கியங்களுக்கு கவனம் செலுத்துகிறது. கூடுதலாக, மாணவர்கள் அரபு வினைச்சொற்களின் உருபுமாற்றத்தின் அடிப்படைகளை கற்கத் தொடங்குவார்கள்.</span>
+											<span class="en" style="display:none;">In this first level, students will study Madina Arabic Book 1, focusing on simple Arabic sentences used in daily conversations and beginning verb conjugation basics.</span>
+										</div>
+									</div>
+									<div class="playlists">
+										<div class="playlist-embed">
+											<iframe width="100%" height="360" src="https://www.youtube-nocookie.com/embed/videoseries?si=tjS3I-7NTEMLx0VN&amp;list=PL0igoq7HFDfC2JzFko58G1cXETcYKq9Mu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="playlist-embed">
+											<iframe width="100%" height="360" src="https://www.youtube.com/embed/videoseries?list=PL0igoq7HFDfAf8fguDUpNjJh6yh5u0hEy" title="Playlist 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+									</div>
+									<div class="playlist-note">குறிப்பு: இங்கே உள்ள பட்டியல்கள் யூடியூப் இயக்கியில் நேரடியாக ஸ்ட்ரீம் செய்யப்படும் (வீடியோக்களை பதிவிறக்க வேண்டாம்).</div>
+								</article>
+								<!-- Sublevel 2 -->
+								<article class="sublevel" id="foundation-level-2">
+									<div class="sublevel-header">
+										<h3><span class="ta">இரண்டாம் நிலை - Level 2</span><span class="en" style="display:none;">Level 2</span></h3>
+										<div class="desc">
+											<span class="ta">இந்த இரண்டாம் நிலையில், மாணவர்கள் அரபு இலக்கணத்தின் மேம்பட்ட அம்சங்களை கற்றுக்கொள்வார்கள். (உரையாடல், சொற்கள், மற்றும் வினைச்சொற்கள்)</span>
+											<span class="en" style="display:none;">In this second level, students will learn advanced aspects of Arabic grammar, conversation, vocabulary, and verbs.</span>
+										</div>
+									</div>
+									<div class="playlists">
+										<div class="playlist-note">Playlist</div>
+									</div>
+								</article>
+								<!-- Sublevel 3 -->
+								<article class="sublevel" id="foundation-level-3">
+									<div class="sublevel-header">
+										<h3><span class="ta">மூன்றாம் நிலை - Level 3</span><span class="en" style="display:none;">Level 3</span></h3>
+										<div class="desc">
+											<span class="ta">இந்த மூன்றாம் நிலையில், மாணவர்கள் அரபு வாசிப்பு மற்றும் எழுதும் திறன்களை மேம்படுத்துவார்கள்.</span>
+											<span class="en" style="display:none;">In this third level, students will improve their Arabic reading and writing skills.</span>
+										</div>
+									</div>
+									<div class="playlists">
+										<div class="playlist-note">Playlist</div>
+									</div>
+								</article>
+								<!-- Sublevel 4 -->
+								<article class="sublevel" id="foundation-level-4">
+									<div class="sublevel-header">
+										<h3><span class="ta">நான்காம் நிலை - Level 4</span><span class="en" style="display:none;">Level 4</span></h3>
+										<div class="desc">
+											<span class="ta">Description-Level 4</span>
+											<span class="en" style="display:none;">Description-Level 4</span>
+										</div>
+									</div>
+									<div class="playlists">
+										<div class="playlist-note">Playlist</div>
+									</div>
+								</article>
+							</div>
+						</section>
+					</main>
+					<footer class="footer">
+						<small>
+							<span class="ta">Powered by YouTube embeds. யூடியூப் நிபந்தனைகளுக்கு இணங்க அதிகாரப்பூர்வ இயக்கியைப் பயன்படுத்தி ஸ்ட்ரீம் செய்யவும்.</span>
+							<span class="en" style="display:none;">Powered by YouTube embeds. Please stream videos using the official YouTube player as per YouTube terms.</span>
+						</small>
+					</footer>
+				</div>
+				<div id="tab-content-tests" style="display:none; max-width:900px; margin:40px auto 0 auto;">
+					<h2 style="text-align:center; margin-bottom:24px;">
+						<span class="ta">மாணவர்களுக்கு தேர்வுகள்</span>
+						<span class="en" style="display:none;">Student Quizzes</span>
+					</h2>
+					<div style="text-align:center;">
+						<p><span class="ta">இங்கே தேர்வுகளுக்கான Google Forms இணைப்புகளைச் சேர்க்கவும்.</span><span class="en" style="display:none;">Add your Google Forms quiz links here.</span></p>
+						<!-- Example Google Form embed (replace with your own forms) -->
+						<!--
+						<iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+						-->
 					</div>
-					<div class="playlists">
-						<div class="playlist-embed">
-							<iframe width="100%" height="360" src="https://www.youtube-nocookie.com/embed/videoseries?si=tjS3I-7NTEMLx0VN&amp;list=PL0igoq7HFDfC2JzFko58G1cXETcYKq9Mu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-						</div>
-						<div class="playlist-embed">
-							<iframe width="100%" height="360" src="https://www.youtube.com/embed/videoseries?list=PL0igoq7HFDfAf8fguDUpNjJh6yh5u0hEy" title="Playlist 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-					</div>
-					<div class="playlist-note">குறிப்பு: இங்கே உள்ள பட்டியல்கள் யூடியூப் இயக்கியில் நேரடியாக ஸ்ட்ரீம் செய்யப்படும் (வீடியோக்களை பதிவிறக்க வேண்டாம்).</div>
-				</article>
-
-				<!-- Sublevel 2 -->
-				<article class="sublevel" id="foundation-level-2">
-					<div class="sublevel-header">
-						<h3><span class="ta">இரண்டாம் நிலை - Level 2</span><span class="en" style="display:none;">Level 2</span></h3>
-						<div class="desc">
-							<span class="ta">Description-Level 2</span>
-							<span class="en" style="display:none;">Description -Level 2</span>
-						</div>
-					</div>
-					<div class="playlists">
-						<div class="playlist-note">Playlist</div>
-					</div>
-				</article>
-
-				<!-- Sublevel 3 -->
-				<article class="sublevel" id="foundation-level-3">
-					<div class="sublevel-header">
-						<h3><span class="ta">மூன்றாம் நிலை - Level 3</span><span class="en" style="display:none;">Level 3</span></h3>
-						<div class="desc">
-							<span class="ta">Description-Level 3</span>
-							<span class="en" style="display:none;">Description-Level 3</span>
-						</div>
-					</div>
-					<div class="playlists">
-						<div class="playlist-note">Playlist</div>
-					</div>
-				</article>
-
-				<!-- Sublevel 4 -->
-				<article class="sublevel" id="foundation-level-4">
-					<div class="sublevel-header">
-						<h3><span class="ta">நான்காம் நிலை - Level 4</span><span class="en" style="display:none;">Level 4</span></h3>
-						<div class="desc">
-							<span class="ta">Description-Level 4</span>
-							<span class="en" style="display:none;">Description-Level 4</span>
-						</div>
-					</div>
-					<div class="playlists">
-						<div class="playlist-note">Playlist</div>
-					</div>
-				</article>
-			</div>
-		</section>
-  </main>
-
-  <footer class="footer">
-    <small>
-      <span class="ta">Powered by YouTube embeds. யூடியூப் நிபந்தனைகளுக்கு இணங்க அதிகாரப்பூர்வ இயக்கியைப் பயன்படுத்தி ஸ்ட்ரீம் செய்யவும்.</span>
-      <span class="en" style="display:none;">Powered by YouTube embeds. Please stream videos using the official YouTube player as per YouTube terms.</span>
-    </small>
-  </footer>
-<script>
-// Language toggle logic
-document.getElementById('lang-toggle').onclick = function() {
-  var isTamil = document.querySelector('.ta').style.display !== 'none';
-  document.querySelectorAll('.ta').forEach(function(el) { el.style.display = isTamil ? 'none' : ''; });
-  document.querySelectorAll('.en').forEach(function(el) { el.style.display = isTamil ? '' : 'none'; });
-  this.textContent = isTamil ? 'தமிழ்' : 'English';
-};
-
-// Dropdown for Foundation section
-document.getElementById('foundation-toggle').onclick = function() {
-  var sublevels = document.getElementById('foundation-sublevels');
-  var icon = this;
-  if (sublevels.style.display === 'none' || sublevels.style.display === '') {
-    sublevels.style.display = 'block';
-    icon.innerHTML = '&#9660;'; // Down arrow
-  } else {
-    sublevels.style.display = 'none';
-    icon.innerHTML = '&#9654;'; // Right arrow
-  }
-};
+				</div>
+				<script>
+					// Language toggle logic
+					document.getElementById('lang-toggle').onclick = function() {
+						var isTamil = document.querySelector('.ta').style.display !== 'none';
+						document.querySelectorAll('.ta').forEach(function(el) { el.style.display = isTamil ? 'none' : ''; });
+						document.querySelectorAll('.en').forEach(function(el) { el.style.display = isTamil ? '' : 'none'; });
+						this.textContent = isTamil ? 'தமிழ்' : 'English';
+					};
+					// Dropdown for Foundation section
+					document.getElementById('foundation-toggle').onclick = function() {
+						var sublevels = document.getElementById('foundation-sublevels');
+						var icon = this;
+						if (sublevels.style.display === 'none' || sublevels.style.display === '') {
+							sublevels.style.display = 'block';
+							icon.innerHTML = '&#9660;'; // Down arrow
+						} else {
+							sublevels.style.display = 'none';
+							icon.innerHTML = '&#9654;'; // Right arrow
+						}
+					};
+					// Tab switching logic
+					document.getElementById('tab-home').onclick = function() {
+						document.getElementById('tab-content-home').style.display = '';
+						document.getElementById('tab-content-tests').style.display = 'none';
+						this.style.background = '#60a5fa';
+						this.style.color = '#fff';
+						document.getElementById('tab-tests').style.background = '#334155';
+						document.getElementById('tab-tests').style.color = '#e5e7eb';
+					};
+					document.getElementById('tab-tests').onclick = function() {
+						document.getElementById('tab-content-home').style.display = 'none';
+						document.getElementById('tab-content-tests').style.display = '';
+						this.style.background = '#60a5fa';
+						this.style.color = '#fff';
+						document.getElementById('tab-home').style.background = '#334155';
+						document.getElementById('tab-home').style.color = '#e5e7eb';
+					};
+				</script>
+			</body>
+			</html>
 </script>
 </body>
 </html>
